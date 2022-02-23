@@ -24,6 +24,7 @@ class ExerciseListingApiImpl: ExerciseListingApi{
      Api caller for exercise list
      - returns: Future<[Exercise], Error>
      */
+    
     func getExerciseList() -> Future<[Exercise], Error>{
         return Future<[Exercise], Error> { [weak self] promise in
             guard let self = self else {

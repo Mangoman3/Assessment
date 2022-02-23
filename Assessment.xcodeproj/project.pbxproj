@@ -18,8 +18,7 @@
 		0F819BBF27C68E79002D46FB /* ExerciseDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F819BBA27C68E79002D46FB /* ExerciseDetailModels.swift */; };
 		0F819BC027C68E79002D46FB /* ExerciseDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F819BBB27C68E79002D46FB /* ExerciseDetailInteractor.swift */; };
 		99070F4527C6508E005A9670 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 99070F4427C6508E005A9670 /* Kingfisher */; };
-		99A92D1227C6B4B200E4E3B0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A92D1127C6B4B200E4E3B0 /* API.swift */; };
-		99B4A46227C647E600D17AAC /* EXTENSION.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4A46127C647E600D17AAC /* EXTENSION.swift */; };
+		99B4A46227C647E600D17AAC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4A46127C647E600D17AAC /* Extensions.swift */; };
 		99EC94C627C2D974007DD30E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC94C527C2D974007DD30E /* AppDelegate.swift */; };
 		99EC94C827C2D974007DD30E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC94C727C2D974007DD30E /* SceneDelegate.swift */; };
 		99EC94CA27C2D974007DD30E /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC94C927C2D974007DD30E /* ExerciseViewController.swift */; };
@@ -74,8 +73,7 @@
 		0F819BB927C68E79002D46FB /* ExerciseDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailRouter.swift; sourceTree = "<group>"; };
 		0F819BBA27C68E79002D46FB /* ExerciseDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailModels.swift; sourceTree = "<group>"; };
 		0F819BBB27C68E79002D46FB /* ExerciseDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailInteractor.swift; sourceTree = "<group>"; };
-		99A92D1127C6B4B200E4E3B0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		99B4A46127C647E600D17AAC /* EXTENSION.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EXTENSION.swift; sourceTree = "<group>"; };
+		99B4A46127C647E600D17AAC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		99EC94C227C2D974007DD30E /* Assessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EC94C527C2D974007DD30E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99EC94C727C2D974007DD30E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,18 +130,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		99A92D0F27C6B34000E4E3B0 /* ExerciseList */ = {
+		99A92D1327C6E49200E4E3B0 /* Api */ = {
 			isa = PBXGroup;
 			children = (
+				99EC94F527C3A2C9007DD30E /* ApiManager.swift */,
+				99EC951127C585B9007DD30E /* Endpoint.swift */,
+				99EC950F27C58583007DD30E /* Constants.swift */,
 			);
-			path = ExerciseList;
+			path = Api;
 			sourceTree = "<group>";
 		};
-		99A92D1027C6B34D00E4E3B0 /* ExerciseDetail */ = {
+		99A92D1427C6E4B800E4E3B0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				99EC94F727C3B1C8007DD30E /* Models.swift */,
 			);
-			path = ExerciseDetail;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		99A92D1527C6E4C300E4E3B0 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				99B4A46127C647E600D17AAC /* Extensions.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		99EC94B927C2D974007DD30E = {
@@ -175,12 +185,9 @@
 				99EC951D27C64228007DD30E /* ExerciseDetailWithVariation */,
 				99EC951327C58F86007DD30E /* Cell */,
 				99EC951E27C6426F007DD30E /* SupplementaryViews */,
-				99EC94F527C3A2C9007DD30E /* ApiManager.swift */,
-				99B4A46127C647E600D17AAC /* EXTENSION.swift */,
-				99EC951127C585B9007DD30E /* Endpoint.swift */,
-				99EC950F27C58583007DD30E /* Constants.swift */,
-				99EC94F727C3B1C8007DD30E /* Models.swift */,
-				99EC951427C591F0007DD30E /* ExerciseView.swift */,
+				99A92D1327C6E49200E4E3B0 /* Api */,
+				99A92D1527C6E4C300E4E3B0 /* Helper */,
+				99A92D1427C6E4B800E4E3B0 /* Model */,
 				99EC94CB27C2D974007DD30E /* Main.storyboard */,
 				99EC94CE27C2D975007DD30E /* Assets.xcassets */,
 				99EC94D027C2D975007DD30E /* LaunchScreen.storyboard */,
@@ -193,9 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				99EC94DC27C2D975007DD30E /* AssessmentTests.swift */,
-				99A92D1127C6B4B200E4E3B0 /* API.swift */,
-				99A92D1027C6B34D00E4E3B0 /* ExerciseDetail */,
-				99A92D0F27C6B34000E4E3B0 /* ExerciseList */,
 			);
 			path = AssessmentTests;
 			sourceTree = "<group>";
@@ -203,6 +207,7 @@
 		99EC94FF27C40E75007DD30E /* ExerciseList */ = {
 			isa = PBXGroup;
 			children = (
+				99EC951427C591F0007DD30E /* ExerciseView.swift */,
 				99EC94C927C2D974007DD30E /* ExerciseViewController.swift */,
 				99EC94FD27C40E6D007DD30E /* ExercisePresentor.swift */,
 				99EC94FB27C40E45007DD30E /* ExerciseInteractor.swift */,
@@ -398,7 +403,7 @@
 			files = (
 				99EC950327C41620007DD30E /* ExerciseListViewModel.swift in Sources */,
 				99EC951927C63812007DD30E /* CategoryHeaderView.swift in Sources */,
-				99B4A46227C647E600D17AAC /* EXTENSION.swift in Sources */,
+				99B4A46227C647E600D17AAC /* Extensions.swift in Sources */,
 				0F819BBD27C68E79002D46FB /* ExerciseDetailWorker.swift in Sources */,
 				99EC951727C63802007DD30E /* AlbumItemCell.swift in Sources */,
 				0F819BB527C68E5E002D46FB /* ExerciseDetailListModels.swift in Sources */,
@@ -433,7 +438,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99A92D1227C6B4B200E4E3B0 /* API.swift in Sources */,
 				99EC94DD27C2D975007DD30E /* AssessmentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

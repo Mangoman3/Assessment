@@ -15,7 +15,7 @@ protocol ApiManagerProtocol: AnyObject {
 }
 
 class ApiManager: ApiManagerProtocol {
-    static let shared = ApiManager()
+    
     
     private var cancellables = Set<AnyCancellable>()
 

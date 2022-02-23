@@ -262,24 +262,4 @@ extension ExerciseDetailViewController: UICollectionViewDelegate {
 
 
 
-class ExerciseDetailViewModel: NSObject {
 
-    private var cancellables = Set<AnyCancellable>()
-    @Published var exercise: Exercise?
-
-    func getHomeData(id: Int) {
-        /// Fetching data
-        ApiManager.shared.getData(endpoint: Endpoint.getVideCategories(String(id)), type: Exercise.self)
-            .sink { completion in
-                switch completion {
-                case .failure(let err):
-                    print("Error is \(err.localizedDescription)")
-                case .finished:
-                    print("Finished")
-                }
-            } receiveValue: { [weak self] data in
-                self?.exercise = data
-            }
-            .store(in: &cancellables)
-    }
-}
