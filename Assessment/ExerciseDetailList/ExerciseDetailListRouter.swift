@@ -9,7 +9,9 @@ import UIKit
 
 @objc protocol ExerciseDetailListRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+
+    func routeToExerciseDetailViewController(segue: UIStoryboardSegue)
+
 }
 
 protocol ExerciseDetailListDataPassing
@@ -23,7 +25,7 @@ class ExerciseDetailListRouter: NSObject, ExerciseDetailListRoutingLogic, Exerci
   var dataStore: ExerciseDetailListDataStore?
   
   // MARK: Routing
-    
+
     func routeToExerciseDetailViewController(segue: UIStoryboardSegue) {
         if let vc = segue.destination as? ExerciseDetailViewController {
             if  let exercise = dataStore?.exercise {

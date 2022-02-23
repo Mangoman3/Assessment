@@ -13,7 +13,7 @@ import UIKit
 
 protocol ExerciseDetailDisplayLogic: AnyObject
 {
-//    func displayExerciseDetail(viewModel:ExerciseDetailListViewModel)
+    func displayExerciseDetail(viewModel:Exercise)
 }
 
 
@@ -25,9 +25,11 @@ class ExerciseDetailViewController: UIViewController,ExerciseDetailDisplayLogic 
     typealias DataSource = UICollectionViewDiffableDataSource<Exercise, ImageData>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Exercise, ImageData>
     private lazy var dataSource = makeDataSource()
-
     private var subscriptions = Set<AnyCancellable>()
-    private let viewModel = ExerciseDetailViewModel()
+
+    
+    var interactor: ExerciseDetailBusinessLogic?
+    var router: (NSObjectProtocol & ExerciseDetailRoutingLogic & ExerciseDetailDataPassing)?
 
     var exercise: [Exercise] = []
     private var variation = [Int]()
@@ -36,13 +38,14 @@ class ExerciseDetailViewController: UIViewController,ExerciseDetailDisplayLogic 
     private var maxSectionCount: Int {
         return exercise.first?.variations?.count ?? 0
     }
-
+    /// loading indicator
     private lazy var loadingIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .medium)
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.hidesWhenStopped = true
         return indicator
     }()
+    
     /// adding Loading indicator
     fileprivate func setupLoadingIndicator() {
         view.addSubview(loadingIndicator)
@@ -54,8 +57,7 @@ class ExerciseDetailViewController: UIViewController,ExerciseDetailDisplayLogic 
     }
 
     
-    var interactor: ExerciseDetailBusinessLogic?
-    var router: (NSObjectProtocol & ExerciseDetailRoutingLogic & ExerciseDetailDataPassing)?
+   
 
     // MARK: Object lifecycle
     
@@ -101,14 +103,12 @@ class ExerciseDetailViewController: UIViewController,ExerciseDetailDisplayLogic 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        variation = exercise.first?.variations ?? []  // setting variations to keep track of lazy loading
-        variation.insert(exercise.first?.id ?? 0, at: 0)
-        applySnapshot(data: exercise)
+       
+        interactor?.getInitialData()
         collectionView?.delegate = self
         collectionView?.collectionViewLayout = createCompositionalLayout()
         collectionView!.contentInset.bottom = 50
         setupLoadingIndicator()
-        binding()
     }
 
     /// Update UI with data snapshot
@@ -122,6 +122,23 @@ class ExerciseDetailViewController: UIViewController,ExerciseDetailDisplayLogic 
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 
+    func displayExerciseDetail(viewModel:Exercise){
+        self.exercise.append(viewModel)
+        if exercise.count == 1 {
+            variation = exercise.first?.variations ?? []  // setting variations to keep track of lazy loading
+            variation.insert(exercise.first?.id ?? 0, at: 0)
+        }
+       
+        var snapshot = Snapshot()
+        snapshot.appendSections(self.exercise)
+        self.exercise.forEach { section in
+            snapshot.appendItems(section.images ?? [], toSection: section)
+        }
+        dataSource.apply(snapshot, animatingDifferences: true)
+        
+        self.loadingInProgress = false
+        self.loadingIndicator.stopAnimating()
+    }
     /// Creating Compositional Layout
     fileprivate func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { (index, env) -> NSCollectionLayoutSection? in
@@ -130,19 +147,19 @@ class ExerciseDetailViewController: UIViewController,ExerciseDetailDisplayLogic 
     }
 
     /// ViewModel binding
-    private func binding() {
-        viewModel.$exercise
-            .receive(on: RunLoop.main)
-            .sink { [weak self] items in
-                guard let self = self else { return }
-                if let data = items, data.name != nil {
-                    self.applySnapshot(data: [data])
-                }
-                self.loadingInProgress = false
-                self.loadingIndicator.stopAnimating()
-            }
-            .store(in: &subscriptions)
-    }
+//    private func binding() {
+//        viewModel.$exercise
+//            .receive(on: RunLoop.main)
+//            .sink { [weak self] items in
+//                guard let self = self else { return }
+//                if let data = items, data.name != nil {
+////                    self.applySnapshot(data: [data])
+//                }
+//                self.loadingInProgress = false
+//                self.loadingIndicator.stopAnimating()
+//            }
+//            .store(in: &subscriptions)
+//    }
 }
 
 extension ExerciseDetailViewController {
@@ -236,7 +253,8 @@ extension ExerciseDetailViewController: UICollectionViewDelegate {
         if contentOffsetX >= (scrollView.contentSize.height - scrollView.bounds.height) - 50 {
             guard !loadingInProgress, maxSectionCount + 1 > section else { return }
             loadingInProgress = true
-            viewModel.getHomeData(id: variation[section])
+//            viewModel.getHomeData(id: variation[section])
+            interactor?.getExerciseData(id: variation[section])
             loadingIndicator.startAnimating()
         }
     }
