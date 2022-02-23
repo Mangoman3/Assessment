@@ -14,10 +14,11 @@ uses SPM as depencency for Kingfisher
 Clone 
 https://github.com/Mangoman3/Assessment.git
 
-Notes:
+# Notes:
 - Project needs more work on test coverage as currently is very low
 - learnt SwiftUI and Combine for this assessment, seems amazing
  
+Thank you
 
 
 
