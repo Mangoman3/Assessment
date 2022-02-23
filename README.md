@@ -15,7 +15,7 @@ Clone
 https://github.com/Mangoman3/Assessment.git
 
 Notes:
-- Project needs more work on test coverage as currenlty is very low
+- Project needs more work on test coverage as currently is very low
 - learnt SwiftUI and Combine for this assessment, seems amazing
  
 
