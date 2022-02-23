@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MQU-eY-RaD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -42,7 +43,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dAR-ve-K6U">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zQZ-jC-sOC">
                                     <size key="itemSize" width="300" height="300"/>
@@ -62,7 +63,6 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="302" height="305"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemPinkColor"/>
                                             <constraints>
                                                 <constraint firstItem="FuE-ox-1uo" firstAttribute="leading" secondItem="11I-0j-2B1" secondAttribute="leading" id="IBx-xI-YQS"/>
                                                 <constraint firstItem="FuE-ox-1uo" firstAttribute="top" secondItem="11I-0j-2B1" secondAttribute="top" id="Yps-ny-0cM"/>
@@ -136,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B2S-0S-Khl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2754" y="-459"/>
+            <point key="canvasLocation" x="2361" y="-459"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uga-Ic-Hsk">
@@ -185,7 +185,6 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="302" height="305"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemPinkColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="f7g-fy-ITN" secondAttribute="trailing" constant="-2" id="1zB-uW-Pgq"/>
                                                 <constraint firstItem="f7g-fy-ITN" firstAttribute="top" secondItem="R2A-hv-M8j" secondAttribute="top" id="CtC-tS-sPx"/>
@@ -255,6 +254,7 @@
                     <navigationItem key="navigationItem" id="txM-FN-Pu1"/>
                     <connections>
                         <outlet property="collectionView" destination="rxs-On-FAE" id="fNR-m2-aFg"/>
+                        <segue destination="sIS-Y9-th1" kind="show" identifier="ExerciseDetailViewController" id="S8d-2u-1eD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yw4-yT-rSM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -265,9 +265,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

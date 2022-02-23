@@ -25,7 +25,9 @@ class ExerciseRouter: NSObject, ExerciseRoutingLogic, ExerciseDataPassing {
     func routeToExerciseDetailViewController(segue: UIStoryboardSegue) {
         if let vc = segue.destination as? ExerciseDetailListViewController {
             if  let exercise = dataStore?.selectedExercise {
-                vc.exercise = [exercise]
+               
+               var dataStore = vc.router?.dataStore
+                dataStore?.exercise = exercise
             }
         }
     }

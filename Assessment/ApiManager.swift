@@ -38,6 +38,7 @@ class ApiManager: ApiManagerProtocol {
 
                     return data
                 }
+                
                 .decode(type: T.self, decoder: JSONDecoder())
                 .receive(on: RunLoop.main)
                 .sink(

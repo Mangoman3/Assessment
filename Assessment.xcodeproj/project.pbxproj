@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F819BB227C68E5E002D46FB /* ExerciseDetailListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F819BAD27C68E5E002D46FB /* ExerciseDetailListPresenter.swift */; };
+		0F819BB327C68E5E002D46FB /* ExerciseDetailListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F819BAE27C68E5E002D46FB /* ExerciseDetailListWorker.swift */; };
+		0F819BB427C68E5E002D46FB /* ExerciseDetailListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F819BAF27C68E5E002D46FB /* ExerciseDetailListRouter.swift */; };
+		0F819BB527C68E5E002D46FB /* ExerciseDetailListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F819BB027C68E5E002D46FB /* ExerciseDetailListModels.swift */; };
+		0F819BB627C68E5E002D46FB /* ExerciseDetailListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F819BB127C68E5E002D46FB /* ExerciseDetailListInteractor.swift */; };
+		0F819BBC27C68E79002D46FB /* ExerciseDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F819BB727C68E79002D46FB /* ExerciseDetailPresenter.swift */; };
+		0F819BBD27C68E79002D46FB /* ExerciseDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F819BB827C68E79002D46FB /* ExerciseDetailWorker.swift */; };
+		0F819BBE27C68E79002D46FB /* ExerciseDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F819BB927C68E79002D46FB /* ExerciseDetailRouter.swift */; };
+		0F819BBF27C68E79002D46FB /* ExerciseDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F819BBA27C68E79002D46FB /* ExerciseDetailModels.swift */; };
+		0F819BC027C68E79002D46FB /* ExerciseDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F819BBB27C68E79002D46FB /* ExerciseDetailInteractor.swift */; };
+		99070F4527C6508E005A9670 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 99070F4427C6508E005A9670 /* Kingfisher */; };
+		99A92D0C27C690AF00E4E3B0 /* ExerciseDetailViewControllerH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A92D0B27C690AF00E4E3B0 /* ExerciseDetailViewControllerH.swift */; };
+		99B4A46227C647E600D17AAC /* EXTENSION.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B4A46127C647E600D17AAC /* EXTENSION.swift */; };
 		99EC94C627C2D974007DD30E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC94C527C2D974007DD30E /* AppDelegate.swift */; };
 		99EC94C827C2D974007DD30E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC94C727C2D974007DD30E /* SceneDelegate.swift */; };
 		99EC94CA27C2D974007DD30E /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC94C927C2D974007DD30E /* ExerciseViewController.swift */; };
@@ -14,8 +27,6 @@
 		99EC94CF27C2D975007DD30E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99EC94CE27C2D975007DD30E /* Assets.xcassets */; };
 		99EC94D227C2D975007DD30E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99EC94D027C2D975007DD30E /* LaunchScreen.storyboard */; };
 		99EC94DD27C2D975007DD30E /* AssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC94DC27C2D975007DD30E /* AssessmentTests.swift */; };
-		99EC94E727C2D975007DD30E /* AssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC94E627C2D975007DD30E /* AssessmentUITests.swift */; };
-		99EC94E927C2D975007DD30E /* AssessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC94E827C2D975007DD30E /* AssessmentUITestsLaunchTests.swift */; };
 		99EC94F627C3A2C9007DD30E /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC94F527C3A2C9007DD30E /* ApiManager.swift */; };
 		99EC94F827C3B1C8007DD30E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC94F727C3B1C8007DD30E /* Models.swift */; };
 		99EC94FA27C3F93A007DD30E /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC94F927C3F939007DD30E /* ExerciseDetailViewController.swift */; };
@@ -24,12 +35,15 @@
 		99EC950127C410D2007DD30E /* ExerciseWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC950027C410D2007DD30E /* ExerciseWorker.swift */; };
 		99EC950327C41620007DD30E /* ExerciseListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC950227C41620007DD30E /* ExerciseListViewModel.swift */; };
 		99EC950527C41EBF007DD30E /* ExerciseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC950427C41EBF007DD30E /* ExerciseRouter.swift */; };
-		99EC950827C5234E007DD30E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 99EC950727C5234E007DD30E /* Kingfisher */; };
 		99EC950A27C55A40007DD30E /* ExerciseDetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC950927C55A40007DD30E /* ExerciseDetailListViewController.swift */; };
 		99EC950D27C55C0E007DD30E /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC950B27C55C0E007DD30E /* ButtonCell.swift */; };
 		99EC950E27C55C0E007DD30E /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99EC950C27C55C0E007DD30E /* ButtonCell.xib */; };
 		99EC951027C58583007DD30E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC950F27C58583007DD30E /* Constants.swift */; };
 		99EC951227C585B9007DD30E /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC951127C585B9007DD30E /* Endpoint.swift */; };
+		99EC951527C591F0007DD30E /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC951427C591F0007DD30E /* ExerciseView.swift */; };
+		99EC951727C63802007DD30E /* AlbumItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC951627C63801007DD30E /* AlbumItemCell.swift */; };
+		99EC951927C63812007DD30E /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC951827C63812007DD30E /* CategoryHeaderView.swift */; };
+		99EC951B27C63831007DD30E /* CategoryFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC951A27C63831007DD30E /* CategoryFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +64,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F819BAD27C68E5E002D46FB /* ExerciseDetailListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailListPresenter.swift; sourceTree = "<group>"; };
+		0F819BAE27C68E5E002D46FB /* ExerciseDetailListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailListWorker.swift; sourceTree = "<group>"; };
+		0F819BAF27C68E5E002D46FB /* ExerciseDetailListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailListRouter.swift; sourceTree = "<group>"; };
+		0F819BB027C68E5E002D46FB /* ExerciseDetailListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailListModels.swift; sourceTree = "<group>"; };
+		0F819BB127C68E5E002D46FB /* ExerciseDetailListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailListInteractor.swift; sourceTree = "<group>"; };
+		0F819BB727C68E79002D46FB /* ExerciseDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailPresenter.swift; sourceTree = "<group>"; };
+		0F819BB827C68E79002D46FB /* ExerciseDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailWorker.swift; sourceTree = "<group>"; };
+		0F819BB927C68E79002D46FB /* ExerciseDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailRouter.swift; sourceTree = "<group>"; };
+		0F819BBA27C68E79002D46FB /* ExerciseDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailModels.swift; sourceTree = "<group>"; };
+		0F819BBB27C68E79002D46FB /* ExerciseDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailInteractor.swift; sourceTree = "<group>"; };
+		99A92D0B27C690AF00E4E3B0 /* ExerciseDetailViewControllerH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewControllerH.swift; sourceTree = "<group>"; };
+		99B4A46127C647E600D17AAC /* EXTENSION.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EXTENSION.swift; sourceTree = "<group>"; };
 		99EC94C227C2D974007DD30E /* Assessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EC94C527C2D974007DD30E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99EC94C727C2D974007DD30E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,8 +87,6 @@
 		99EC94D827C2D975007DD30E /* AssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EC94DC27C2D975007DD30E /* AssessmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentTests.swift; sourceTree = "<group>"; };
 		99EC94E227C2D975007DD30E /* AssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssessmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		99EC94E627C2D975007DD30E /* AssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentUITests.swift; sourceTree = "<group>"; };
-		99EC94E827C2D975007DD30E /* AssessmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		99EC94F527C3A2C9007DD30E /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		99EC94F727C3B1C8007DD30E /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		99EC94F927C3F939007DD30E /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +100,10 @@
 		99EC950C27C55C0E007DD30E /* ButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		99EC950F27C58583007DD30E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		99EC951127C585B9007DD30E /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		99EC951427C591F0007DD30E /* ExerciseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
+		99EC951627C63801007DD30E /* AlbumItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumItemCell.swift; sourceTree = "<group>"; };
+		99EC951827C63812007DD30E /* CategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
+		99EC951A27C63831007DD30E /* CategoryFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99EC950827C5234E007DD30E /* Kingfisher in Frameworks */,
+				99070F4527C6508E005A9670 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +137,6 @@
 			children = (
 				99EC94C427C2D974007DD30E /* Assessment */,
 				99EC94DB27C2D975007DD30E /* AssessmentTests */,
-				99EC94E527C2D975007DD30E /* AssessmentUITests */,
 				99EC94C327C2D974007DD30E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -127,17 +154,19 @@
 		99EC94C427C2D974007DD30E /* Assessment */ = {
 			isa = PBXGroup;
 			children = (
-				99EC950B27C55C0E007DD30E /* ButtonCell.swift */,
-				99EC950C27C55C0E007DD30E /* ButtonCell.xib */,
 				99EC94C527C2D974007DD30E /* AppDelegate.swift */,
 				99EC94C727C2D974007DD30E /* SceneDelegate.swift */,
 				99EC94FF27C40E75007DD30E /* ExerciseList */,
-				99EC950927C55A40007DD30E /* ExerciseDetailListViewController.swift */,
-				99EC94F927C3F939007DD30E /* ExerciseDetailViewController.swift */,
+				99EC951C27C64219007DD30E /* ExerciseDetailList */,
+				99EC951D27C64228007DD30E /* ExerciseDetail */,
+				99EC951327C58F86007DD30E /* Cell */,
+				99EC951E27C6426F007DD30E /* SupplementaryViews */,
 				99EC94F527C3A2C9007DD30E /* ApiManager.swift */,
+				99B4A46127C647E600D17AAC /* EXTENSION.swift */,
 				99EC951127C585B9007DD30E /* Endpoint.swift */,
 				99EC950F27C58583007DD30E /* Constants.swift */,
 				99EC94F727C3B1C8007DD30E /* Models.swift */,
+				99EC951427C591F0007DD30E /* ExerciseView.swift */,
 				99EC94CB27C2D974007DD30E /* Main.storyboard */,
 				99EC94CE27C2D975007DD30E /* Assets.xcassets */,
 				99EC94D027C2D975007DD30E /* LaunchScreen.storyboard */,
@@ -154,15 +183,6 @@
 			path = AssessmentTests;
 			sourceTree = "<group>";
 		};
-		99EC94E527C2D975007DD30E /* AssessmentUITests */ = {
-			isa = PBXGroup;
-			children = (
-				99EC94E627C2D975007DD30E /* AssessmentUITests.swift */,
-				99EC94E827C2D975007DD30E /* AssessmentUITestsLaunchTests.swift */,
-			);
-			path = AssessmentUITests;
-			sourceTree = "<group>";
-		};
 		99EC94FF27C40E75007DD30E /* ExerciseList */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +194,52 @@
 				99EC950227C41620007DD30E /* ExerciseListViewModel.swift */,
 			);
 			path = ExerciseList;
+			sourceTree = "<group>";
+		};
+		99EC951327C58F86007DD30E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				99EC951627C63801007DD30E /* AlbumItemCell.swift */,
+				99EC950B27C55C0E007DD30E /* ButtonCell.swift */,
+				99EC950C27C55C0E007DD30E /* ButtonCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		99EC951C27C64219007DD30E /* ExerciseDetailList */ = {
+			isa = PBXGroup;
+			children = (
+				99EC950927C55A40007DD30E /* ExerciseDetailListViewController.swift */,
+				0F819BAD27C68E5E002D46FB /* ExerciseDetailListPresenter.swift */,
+				0F819BAE27C68E5E002D46FB /* ExerciseDetailListWorker.swift */,
+				0F819BAF27C68E5E002D46FB /* ExerciseDetailListRouter.swift */,
+				0F819BB027C68E5E002D46FB /* ExerciseDetailListModels.swift */,
+				0F819BB127C68E5E002D46FB /* ExerciseDetailListInteractor.swift */,
+			);
+			path = ExerciseDetailList;
+			sourceTree = "<group>";
+		};
+		99EC951D27C64228007DD30E /* ExerciseDetail */ = {
+			isa = PBXGroup;
+			children = (
+				99A92D0B27C690AF00E4E3B0 /* ExerciseDetailViewControllerH.swift */,
+				99EC94F927C3F939007DD30E /* ExerciseDetailViewController.swift */,
+				0F819BB727C68E79002D46FB /* ExerciseDetailPresenter.swift */,
+				0F819BB927C68E79002D46FB /* ExerciseDetailRouter.swift */,
+				0F819BBA27C68E79002D46FB /* ExerciseDetailModels.swift */,
+				0F819BB827C68E79002D46FB /* ExerciseDetailWorker.swift */,
+				0F819BBB27C68E79002D46FB /* ExerciseDetailInteractor.swift */,
+			);
+			path = ExerciseDetail;
+			sourceTree = "<group>";
+		};
+		99EC951E27C6426F007DD30E /* SupplementaryViews */ = {
+			isa = PBXGroup;
+			children = (
+				99EC951827C63812007DD30E /* CategoryHeaderView.swift */,
+				99EC951A27C63831007DD30E /* CategoryFooterView.swift */,
+			);
+			path = SupplementaryViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,7 +259,7 @@
 			);
 			name = Assessment;
 			packageProductDependencies = (
-				99EC950727C5234E007DD30E /* Kingfisher */,
+				99070F4427C6508E005A9670 /* Kingfisher */,
 			);
 			productName = Assessment;
 			productReference = 99EC94C227C2D974007DD30E /* Assessment.app */;
@@ -268,7 +334,7 @@
 			);
 			mainGroup = 99EC94B927C2D974007DD30E;
 			packageReferences = (
-				99EC950627C5234E007DD30E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				99070F4327C6508E005A9670 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 99EC94C327C2D974007DD30E /* Products */;
 			projectDirPath = "";
@@ -315,20 +381,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				99EC950327C41620007DD30E /* ExerciseListViewModel.swift in Sources */,
+				99EC951927C63812007DD30E /* CategoryHeaderView.swift in Sources */,
+				99B4A46227C647E600D17AAC /* EXTENSION.swift in Sources */,
+				0F819BBD27C68E79002D46FB /* ExerciseDetailWorker.swift in Sources */,
+				99EC951727C63802007DD30E /* AlbumItemCell.swift in Sources */,
+				0F819BB527C68E5E002D46FB /* ExerciseDetailListModels.swift in Sources */,
 				99EC94F827C3B1C8007DD30E /* Models.swift in Sources */,
+				99EC951B27C63831007DD30E /* CategoryFooterView.swift in Sources */,
 				99EC94F627C3A2C9007DD30E /* ApiManager.swift in Sources */,
 				99EC94FC27C40E45007DD30E /* ExerciseInteractor.swift in Sources */,
+				0F819BB427C68E5E002D46FB /* ExerciseDetailListRouter.swift in Sources */,
 				99EC951227C585B9007DD30E /* Endpoint.swift in Sources */,
 				99EC950527C41EBF007DD30E /* ExerciseRouter.swift in Sources */,
 				99EC950A27C55A40007DD30E /* ExerciseDetailListViewController.swift in Sources */,
 				99EC94CA27C2D974007DD30E /* ExerciseViewController.swift in Sources */,
+				0F819BB227C68E5E002D46FB /* ExerciseDetailListPresenter.swift in Sources */,
 				99EC94FE27C40E6D007DD30E /* ExercisePresentor.swift in Sources */,
 				99EC950127C410D2007DD30E /* ExerciseWorker.swift in Sources */,
 				99EC94C627C2D974007DD30E /* AppDelegate.swift in Sources */,
+				0F819BB327C68E5E002D46FB /* ExerciseDetailListWorker.swift in Sources */,
 				99EC950D27C55C0E007DD30E /* ButtonCell.swift in Sources */,
+				99EC951527C591F0007DD30E /* ExerciseView.swift in Sources */,
 				99EC951027C58583007DD30E /* Constants.swift in Sources */,
+				99A92D0C27C690AF00E4E3B0 /* ExerciseDetailViewControllerH.swift in Sources */,
+				0F819BC027C68E79002D46FB /* ExerciseDetailInteractor.swift in Sources */,
 				99EC94C827C2D974007DD30E /* SceneDelegate.swift in Sources */,
+				0F819BB627C68E5E002D46FB /* ExerciseDetailListInteractor.swift in Sources */,
+				0F819BBF27C68E79002D46FB /* ExerciseDetailModels.swift in Sources */,
+				0F819BBE27C68E79002D46FB /* ExerciseDetailRouter.swift in Sources */,
 				99EC94FA27C3F93A007DD30E /* ExerciseDetailViewController.swift in Sources */,
+				0F819BBC27C68E79002D46FB /* ExerciseDetailPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,8 +426,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99EC94E927C2D975007DD30E /* AssessmentUITestsLaunchTests.swift in Sources */,
-				99EC94E727C2D975007DD30E /* AssessmentUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +515,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -490,7 +570,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -674,7 +754,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		99EC950627C5234E007DD30E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		99070F4327C6508E005A9670 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -685,9 +765,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		99EC950727C5234E007DD30E /* Kingfisher */ = {
+		99070F4427C6508E005A9670 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 99EC950627C5234E007DD30E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 99070F4327C6508E005A9670 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */

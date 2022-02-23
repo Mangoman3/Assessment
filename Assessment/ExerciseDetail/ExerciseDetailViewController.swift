@@ -10,32 +10,32 @@ import Foundation
 import Kingfisher
 import UIKit
 
-class AlbumItemCell: UICollectionViewCell {
-    @IBOutlet var imgCell: UIImageView!
-}
-class CategoryHeaderView: UICollectionReusableView {
-    @IBOutlet var lblTitle: UILabel!
-}
-class CategoryFooterView: UICollectionReusableView {
-    @IBOutlet var lblTitle: UILabel!
+
+protocol ExerciseDetailDisplayLogic: AnyObject
+{
+//    func displayExerciseDetail(viewModel:ExerciseDetailListViewModel)
 }
 
-class ExerciseDetailViewController: UIViewController {
-    
+
+
+class ExerciseDetailViewController: UIViewController,ExerciseDetailDisplayLogic {
+    // MARK: Properties
     @IBOutlet var collectionView: UICollectionView?
-    private var subscriptions = Set<AnyCancellable>()
-    let viewModel = ExerciseDetailViewModel()
+
     typealias DataSource = UICollectionViewDiffableDataSource<Exercise, ImageData>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Exercise, ImageData>
     private lazy var dataSource = makeDataSource()
+
+    private var subscriptions = Set<AnyCancellable>()
+    private let viewModel = ExerciseDetailViewModel()
+
     var exercise: [Exercise] = []
-    var variation = [Int]()
+    private var variation = [Int]()
+    private var loadingInProgress = false
 
     private var maxSectionCount: Int {
         return exercise.first?.variations?.count ?? 0
     }
-
-    private var loadingInProgress = false
 
     private lazy var loadingIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .medium)
@@ -43,33 +43,133 @@ class ExerciseDetailViewController: UIViewController {
         indicator.hidesWhenStopped = true
         return indicator
     }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        variation = exercise.first?.variations ?? []
-        variation.insert(exercise.first?.id ?? 0, at: 0)
-        applySnapshot(data: exercise)
-        collectionView?.delegate = self
-        collectionView?.collectionViewLayout = createCompositionalLayout()
+    /// adding Loading indicator
+    fileprivate func setupLoadingIndicator() {
         view.addSubview(loadingIndicator)
         let layoutGuide = view.safeAreaLayoutGuide
-
         NSLayoutConstraint.activate([
             layoutGuide.centerXAnchor.constraint(equalTo: loadingIndicator.centerXAnchor),
             layoutGuide.bottomAnchor.constraint(equalTo: loadingIndicator.bottomAnchor, constant: 10),
         ])
+    }
+
+    
+    var interactor: ExerciseDetailBusinessLogic?
+    var router: (NSObjectProtocol & ExerciseDetailRoutingLogic & ExerciseDetailDataPassing)?
+
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+    {
+      super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+      setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+      super.init(coder: aDecoder)
+      setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup()
+    {
+      let viewController = self
+      let interactor = ExerciseDetailInteractor()
+      let presenter = ExerciseDetailPresenter()
+      let router = ExerciseDetailRouter()
+      viewController.interactor = interactor
+      viewController.router = router
+      interactor.presenter = presenter
+      presenter.viewController = viewController
+      router.viewController = viewController
+      router.dataStore = interactor
+    }
+    
+    // MARK: Routing
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+      if let scene = segue.identifier {
+        let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+        if let router = router, router.responds(to: selector) {
+          router.perform(selector, with: segue)
+        }
+      }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        variation = exercise.first?.variations ?? []  // setting variations to keep track of lazy loading
+        variation.insert(exercise.first?.id ?? 0, at: 0)
+        applySnapshot(data: exercise)
+        collectionView?.delegate = self
+        collectionView?.collectionViewLayout = createCompositionalLayout()
         collectionView!.contentInset.bottom = 50
+        setupLoadingIndicator()
         binding()
     }
 
-    private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
+    /// Update UI with data snapshot
+    fileprivate func applySnapshot(data: [Exercise]) {
 
-        return UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection? in
-            return self.setupLayoutSection()
+        var snapshot = dataSource.snapshot()
+        snapshot.appendSections(data)
+        data.forEach { section in
+            snapshot.appendItems(section.images ?? [], toSection: section)
+        }
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+
+    /// Creating Compositional Layout
+    fileprivate func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
+        return UICollectionViewCompositionalLayout { (index, env) -> NSCollectionLayoutSection? in
+            return self.getExerciseLayout()
         }
     }
 
-    private func setupLayoutSection() -> NSCollectionLayoutSection {
+    /// ViewModel binding
+    private func binding() {
+        viewModel.$exercise
+            .receive(on: RunLoop.main)
+            .sink { [weak self] items in
+                guard let self = self else { return }
+                if let data = items, data.name != nil {
+                    self.applySnapshot(data: [data])
+                }
+                self.loadingInProgress = false
+                self.loadingIndicator.stopAnimating()
+            }
+            .store(in: &subscriptions)
+    }
+}
+
+extension ExerciseDetailViewController {
+
+    /// Cell Configure
+    func makeDataSource() -> DataSource {
+
+        let dataSource = DataSource(
+            collectionView: collectionView!,
+            cellProvider: { (collectionView, indexPath, video) -> UICollectionViewCell? in
+
+                let cell =
+                    collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: AlbumItemCell.self), for: indexPath) as? AlbumItemCell
+
+                cell?.imgCell.kf.indicatorType = .activity
+                cell?.imgCell.kf.setImage(with: video.image.url)
+
+                return cell
+            }
+        )
+
+        confgiureHeaderFooter(dataSource)
+        return dataSource
+    }
+
+    /// Layout for Exercise
+    fileprivate func getExerciseLayout() -> NSCollectionLayoutSection {
         let itemsize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.8))
         let item = NSCollectionLayoutItem(layoutSize: itemsize)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.4))
@@ -95,22 +195,9 @@ class ExerciseDetailViewController: UIViewController {
 
         return section
     }
-    func makeDataSource() -> DataSource {
 
-        let dataSource = DataSource(
-            collectionView: collectionView!,
-            cellProvider: { (collectionView, indexPath, video) -> UICollectionViewCell? in
-
-                let cell =
-                    collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: AlbumItemCell.self), for: indexPath) as? AlbumItemCell
-
-                cell?.imgCell.kf.indicatorType = .activity
-                cell?.imgCell.kf.setImage(with: video.image.url)
-
-                return cell
-            }
-        )
-
+    /// Configure Supplementary views
+    fileprivate func confgiureHeaderFooter(_ dataSource: ExerciseDetailViewController.DataSource) {
         dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
 
             if kind == UICollectionView.elementKindSectionHeader {
@@ -137,35 +224,11 @@ class ExerciseDetailViewController: UIViewController {
                 return view
             }
         }
-        return dataSource
-    }
-
-    func applySnapshot(data: [Exercise]) {
-
-        var snapshot = dataSource.snapshot()
-        snapshot.appendSections(data)
-
-        data.forEach { section in
-            snapshot.appendItems(section.images ?? [], toSection: section)
-        }
-        dataSource.apply(snapshot, animatingDifferences: true)
-    }
-    private func binding() {
-        viewModel.$exercise
-            .receive(on: RunLoop.main)
-            .sink { [weak self] items in
-                guard let self = self else { return }
-                if let data = items, data.name != nil {
-                    self.applySnapshot(data: [data])
-                }
-                self.loadingInProgress = false
-                self.loadingIndicator.stopAnimating()
-            }
-            .store(in: &subscriptions)
     }
 }
 
 extension ExerciseDetailViewController: UICollectionViewDelegate {
+    //LazyLoading variations
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffsetX = scrollView.contentOffset.y
         let section = dataSource.snapshot().numberOfSections
@@ -179,13 +242,15 @@ extension ExerciseDetailViewController: UICollectionViewDelegate {
     }
 }
 
+
+
 class ExerciseDetailViewModel: NSObject {
 
     private var cancellables = Set<AnyCancellable>()
     @Published var exercise: Exercise?
 
     func getHomeData(id: Int) {
-
+        /// Fetching data
         ApiManager.shared.getData(endpoint: Endpoint.getVideCategories(String(id)), type: Exercise.self)
             .sink { completion in
                 switch completion {

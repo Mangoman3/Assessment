@@ -17,6 +17,7 @@ struct ExerciseResult: Codable, Hashable {
 
 // MARK: - Exercise
 struct Exercise: Codable, Hashable {
+    
     let idHash = UUID()
     let id: Int?
     let name, uuid, description : String?
