@@ -16,7 +16,7 @@ https://github.com/Mangoman3/Assessment.git
 
 # Notes:
 - learnt SwiftUI and Combine for this assessment, seems amazing
-- Counlt work on test cases
+- Couldn't work on test cases
  
 Thank you
 
